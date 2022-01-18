@@ -3,10 +3,10 @@
 ###########################
 
 # check working directories and set if needed
-if(getwd()==paste0("C:/Users/",Sys.info()[6],"/Documents/R/Bet538")){
+if(getwd()==paste0("C:/Users/",Sys.info()[6],"/Documents/R/sportsbetting")){
    message(paste0("Current working directory: ", getwd()))
 } else{
-   setwd(paste0("C:/Users/",Sys.info()[6],"/Documents/R/Bet538"))
+   setwd(paste0("C:/Users/",Sys.info()[6],"/Documents/R/sportsbetting"))
    message(paste0("Directory changed, set to: ", getwd()))
 }
 
@@ -22,6 +22,7 @@ pkgs <- c("assertable",
           "googledrive",
           "googlesheets4",
           "installr",
+          "rvest",
           "shiny",
           "tidyverse")
 
@@ -35,5 +36,6 @@ message("Directories changed and loaded packages:
       googledrive
       googlesheets4
       installr
+      rvest
       shiny
       tidyverse")
