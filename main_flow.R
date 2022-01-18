@@ -1,5 +1,7 @@
 ####################################
+####################################
 # Main script to run Bet538: Sports Betting with Nate Silver
+####################################
 ####################################
 
 # clear environment, reset graphics
@@ -12,5 +14,18 @@ dir <- getwd()
 # Initializing Code
 source("system_init.R")
 
+# Pull in most up to date FiveThirtyEight data
+source("fivethirtyeight_data.R")
+
 # Pull in Bet538 data
-source("Data.R")
+source("main_data.R")
+
+
+# --------------------
+# Data Quality Control
+# --------------------
+
+
+# --------------------------
+# Set Variables for ShinyApp
+# --------------------------
