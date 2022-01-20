@@ -1,41 +1,72 @@
 ##############################
-# Web Scraping Script for Sports Data
+# Data from FiveThirtyEight
 ##############################
 
+fivethirtyeight.dir <- paste0(dir, "/538_data")
+
+#### Season #####
+curr.season <- format(Sys.Date(), "20%y")
+
 #### Pull in newest data ####
-fivethirtyeight_dir <- "C:/Users/johns/Documents/R/fivethirtyeight/data"
+fivethirtyeight.dir <- "C:/Users/johns/Documents/R/fivethirtyeight/data"
 
 # NHL Forecasts
-nhl_url <- paste0(fivethirtyeight_dir, "/nhl-forecasts/README.md") %>%
+nhl.url <- paste0(fivethirtyeight.dir, "/nhl-forecasts/README.md") %>%
    readr::read_file() %>%
    stringr::str_extract("https://.+csv")
-nhl_data <- fread(nhl_url)
+nhl.data.new <- fread(nhl.url)
 
 # NBA Forecasts
-nba_url <- paste0(fivethirtyeight_dir, "/nba-forecasts/README.md") %>%
+nba_url <- paste0(fivethirtyeight.dir, "/nba-forecasts/README.md") %>%
    readr::read_file() %>%
    stringr::str_extract("https://.+csv")
-nba_data <- fread(nba_url)
+nba.data.new <- fread(nba_url)
 
 # NBA Forecasts
-nfl_url <- paste0(fivethirtyeight_dir, "/nfl-elo/README.md") %>%
+nfl.url <- paste0(fivethirtyeight.dir, "/nfl-elo/README.md") %>%
    readr::read_file() %>%
    str_extract("https://.+csv")
-nfl_data <- fread(nfl_url)
+nfl.data.new <- fread(nfl.url)
 
 # Soccer Forecasts
-soccer_url <- paste0(fivethirtyeight_dir, "/soccer-spi/README.md") %>%
+soccer.url <- paste0(fivethirtyeight.dir, "/soccer-spi/README.md") %>%
    readr::read_file() %>%
    str_extract("https://.+csv")
-soccer_data <- fread(soccer_url)
+soccer.data.new <- fread(soccer.url)
+
+
+#### Check if data has updated; if so, update ####
+# NHL
+if (!file.exists(paste0(fivethirtyeight.dir, "/nhl_data.RDS"))) {
+   saveRDS(nhl.data.new, file = paste0(fivethirtyeight.dir, "/nhl_data.rds"))
+}else{
+   # check old data against new data
+   nhl.data <- readRDS(paste0(fivethirtyeight.dir, "/nhl_data.rds"))
+
+   if(nrow(setdiff(nhl.data.new, nhl.data))>0){
+      saveRDS(nhl.data.new, file = paste0(fivethirtyeight.dir, "/nhl_data.rds"))
+      message("Data has changed, updated to new data")
+   }else{
+      message("Data has not updated.")
+   }
+}
+
+
+
+
+
 
 
 #### Get Teams/Leagues ####
-nhl_teams <- nhl_data[,unique(home_team)]
-nba_teams <- nba_data[,unique(team1)]
-nfl_data <- nfl_data[,unique(team1)]
-soccer_names <- soccer_data[,unique(team1)]
-soccer_leagues <- soccer_data[,unique(league)]
+nhl.teams <- nhl.data[,.(unique(home_team))]
+nba.teams <- nba.data[,unique(team1)]
+nfl.teams <- nfl.data[,unique(team1)]
+soccer.teams <- soccer.data[,unique(team1)]
+soccer.leagues <- soccer.data[,unique(league)]
 
 
 #### Dates ####
+# Grab all days for this season
+nhl.season <- nhl.data[season == is.integer(curr_season)]
+nba.season <- nba.data[season == is.integer(curr_season)]
+nfl.season <- nfl.data[season == is.integer(curr_season)]
