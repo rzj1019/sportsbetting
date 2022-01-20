@@ -4,6 +4,8 @@
 ####################################
 ####################################
 
+#### Load packages, source files ####
+
 # clear environment, reset graphics
 rm(list = ls())
 graphics.off()
@@ -21,9 +23,11 @@ source("fivethirtyeight_data.R")
 source("main_data.R")
 
 
-# --------------------
-# Data Quality Control
-# --------------------
+#### Data Quality Control ####
+
+
+
+#### Set Variables
 
 
 # --------------------------
