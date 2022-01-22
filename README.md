@@ -12,7 +12,7 @@ Looking at the [NBA predictions](https://projects.fivethirtyeight.com/2022-nba-p
 
 #### Point Spread
 If FiveThirtyEight's point spread is larger than the favorite on DraftKings, I bet on the favorite. If it is lower, then I bet on the underdog. If they are equal (i.e. PK --pick), then I bet on who FiveThirtyEight predicts who will win. The logic behind this is that if FiveThirtyEight gives a larger spread, then there is a great chance I will win the bet because I'll have a couple extra points to play with. Similarly, if the spread is less than what DraftKings posts, then the underdog has a greater chance of covering the spread.
-#### MOneyline
+#### Moneyline
 FiveThirtyEight, in addtion to giving a point spread, give a percent chance of winning. DraftKings also does this ~24 hours before the posted game time.
 
 
