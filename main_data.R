@@ -8,10 +8,10 @@
 googlesheets4::gs4_auth(email = TRUE)
 
 # Bet538 sheets
-bet538.id <- "16RhAnUcACgKTYaJZKT7JzWDd57zcFNzMkXL29KGo9rg"
-PointSpread <- read_sheet(ss = bet538.id, sheet = "PointSpread") %>% data.table()
-Moneyline <- read_sheet(ss = bet538.id, sheet = "Moneyline") %>% data.table()
-Parlays <- read_sheet(ss = bet538.id, sheet = "Parlays") %>% data.table()
+bet538 <- "16RhAnUcACgKTYaJZKT7JzWDd57zcFNzMkXL29KGo9rg"
+PointSpread <- read_sheet(bet538, sheet = "PointSpread") %>% data.table()
+Moneyline <- read_sheet(bet538, sheet = "Moneyline") %>% data.table()
+Parlays <- read_sheet(bet538, sheet = "Parlays") %>% data.table()
 
 
 # --- Get gameday dates ---
