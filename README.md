@@ -8,7 +8,7 @@ Below you will find my methedology for betting with FiveThirtyEight's prediction
 ### Club Soccer
 
 ### NBA
-Looking at the [NBA predictions](https://projects.fivethirtyeight.com/2022-nba-predictions/?ex_cid=irpromo)page, I navigate to "Games". Looking at FiveThirtyEight's projections, I look at the day I want to bet on and then compare their predictions to what [DraftKings](https://www.draftkings.com/account/sitelogin/false?returnurl=%2Flobby) offers. Then betting goes as follows:
+Looking at the [NBA predictions](https://projects.fivethirtyeight.com/2022-nba-predictions/?ex_cid=irpromo) page, I navigate to "Games". Looking at FiveThirtyEight's projections, I look at the day I want to bet on and then compare their predictions to what [DraftKings](https://www.draftkings.com/account/sitelogin/false?returnurl=%2Flobby) offers. Then betting goes as follows:
 
 #### Point Spread
 If FiveThirtyEight's point spread is larger than the favorite on DraftKings, I bet on the favorite. If it is lower, then I bet on the underdog. If they are equal (i.e. PK --pick), then I bet on who FiveThirtyEight predicts who will win. The logic behind this is that if FiveThirtyEight gives a larger spread, then there is a great chance I will win the bet because I'll have a couple extra points to play with. Similarly, if the spread is less than what DraftKings posts, then the underdog has a greater chance of covering the spread.
