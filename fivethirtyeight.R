@@ -107,7 +107,7 @@ if (!file.exists(paste0(fivethirtyeight.data, "/nhl_data.RDS"))) {
 }
 
 
-#### Get Teams/Leagues for Current Season ####
+#### Get Teams/Leagues  names for Current Season ####
 soccer.teams <- soccer.data[season == curr.season,unique(team1)]
 soccer.leagues <- soccer.data[season == curr.season,unique(league)]
 mlb.teams <- mlb.data[season == curr.season, .(unique(team1))]
@@ -115,11 +115,19 @@ nba.teams <- nba.data[season == curr.season, .(unique(team1))]
 nfl.teams <- nfl.data[season == curr.season, .(unique(team1))]
 nhl.teams <- nhl.data[season == curr.season, .(unique(home_team))]
 
+#### Data Calculations ####
+# Club Soccer
 
-#### Dates ####
-# Grab all days for this season
-club.season <- soccer.data[season == curr.season]
-mld.season <- mlb.data[season == curr.season]
-nba.season <- nba.data[season == curr.season]
-nfl.season <- nfl.data[season == curr.season]
-nhl.season <- nhl.data[season == curr.season]
+
+
+
+
+#### Current Season ####
+# Grab data for this season
+club.season <- soccer.data[season == as.numeric(curr.season) - 1]
+mld.season <- mlb.data[season == as.numeric(curr.season)]
+nba.season <- nba.data[season == as.numeric(curr.season)]
+nfl.season <- nfl.data[season == as.numeric(curr.season)]
+nhl.season <- nhl.data[season == as.numeric(curr.season)]
+
+
