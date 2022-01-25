@@ -1,4 +1,4 @@
-# Documentation for _fivethirtyeight.R_ script
+# Documentation for _fivethirtyeight.R_
 Below you will find defintions about calculations done in the _fivethirtyeight.R_ file.
 
 ## Pull in newest data
