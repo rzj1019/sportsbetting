@@ -2,13 +2,14 @@
 # Environment loader
 ###########################
 
-#### check working directories and set if needed ####
+#### check working directory and set if needed; set additional directories ####
 if(getwd()==paste0("C:/Users/",Sys.info()[6],"/Documents/R/sportsbetting")){
    message(paste0("Current working directory: ", getwd()))
 } else{
    setwd(paste0("C:/Users/",Sys.info()[6],"/Documents/R/sportsbetting"))
    message(paste0("Directory changed, set to: ", getwd()))
 }
+
 
 ##### Loading Needed packages ####
 

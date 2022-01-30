@@ -24,18 +24,17 @@ nhl.data.new <- fivethirtyeight.urls[5,2] %>% fread()
 
 
 #### Check if data has updated; if so, update ####
-fivethirtyeight.data <- paste0(dir, "/538_data")
 
 # Club Soccer
-if (!file.exists(paste0(fivethirtyeight.data, "/soccer_data.RDS"))) {
-   saveRDS(soccer.data.new, file = paste0(fivethirtyeight.data, "/soccer_data.rds"))
+if (!file.exists(paste0(data.dir, "/soccer_data.RDS"))) {
+   saveRDS(soccer.data.new, file = paste0(data.dir, "/soccer_data.rds"))
    soccer.data <- soccer.data.new
 }else{
    # check old data against new data
-   soccer.data <- readRDS(paste0(fivethirtyeight.data, "/soccer_data.rds"))
+   soccer.data <- readRDS(paste0(data.dir, "/soccer_data.rds"))
 
    if(nrow(setdiff(soccer.data.new, soccer.data))>0){
-      saveRDS(soccer.data.new, file = paste0(fivethirtyeight.data, "/soccer_data.rds"))
+      saveRDS(soccer.data.new, file = paste0(data.dir, "/soccer_data.rds"))
       message("Club soccer data has changed, updated to new data")
    }else{
       message("Club soccer data has not updated.")
@@ -43,15 +42,15 @@ if (!file.exists(paste0(fivethirtyeight.data, "/soccer_data.RDS"))) {
 }
 
 # MLB
-if (!file.exists(paste0(fivethirtyeight.data, "/mlb_data.RDS"))) {
-   saveRDS(mlb.data.new, file = paste0(fivethirtyeight.data, "/mlb_data.rds"))
+if (!file.exists(paste0(data.dir, "/mlb_data.RDS"))) {
+   saveRDS(mlb.data.new, file = paste0(data.dir, "/mlb_data.rds"))
    mlb.data <- mlb.data.new
 }else{
    # check old data against new data
-   mlb.data <- readRDS(paste0(fivethirtyeight.data, "/mlb_data.rds"))
+   mlb.data <- readRDS(paste0(data.dir, "/mlb_data.rds"))
 
    if(nrow(setdiff(mlb.data.new, mlb.data))>0){
-      saveRDS(mlb.data.new, file = paste0(fivethirtyeight.data, "/mlb_data.rds"))
+      saveRDS(mlb.data.new, file = paste0(data.dir, "/mlb_data.rds"))
       message("MLB data has changed, updated to new data")
    }else{
       message("MLB data has not updated.")
@@ -59,15 +58,15 @@ if (!file.exists(paste0(fivethirtyeight.data, "/mlb_data.RDS"))) {
 }
 
 # NBA
-if (!file.exists(paste0(fivethirtyeight.data, "/nba_data.RDS"))) {
-   saveRDS(nba.data.new, file = paste0(fivethirtyeight.data, "/nba_data.rds"))
+if (!file.exists(paste0(data.dir, "/nba_data.RDS"))) {
+   saveRDS(nba.data.new, file = paste0(data.dir, "/nba_data.rds"))
    nba.data <- nba.data.new
 }else{
    # check old data against new data
-   nba.data <- readRDS(paste0(fivethirtyeight.data, "/nba_data.rds"))
+   nba.data <- readRDS(paste0(data.dir, "/nba_data.rds"))
 
    if(nrow(setdiff(nba.data.new, nba.data))>0){
-      saveRDS(nba.data.new, file = paste0(fivethirtyeight.data, "/nba_data.rds"))
+      saveRDS(nba.data.new, file = paste0(data.dir, "/nba_data.rds"))
       message("NBA data has changed, updated to new data")
    }else{
       message("NBA data has not updated.")
@@ -75,15 +74,15 @@ if (!file.exists(paste0(fivethirtyeight.data, "/nba_data.RDS"))) {
 }
 
 # NFL
-if (!file.exists(paste0(fivethirtyeight.data, "/nfl_data.RDS"))) {
-   saveRDS(nfl.data.new, file = paste0(fivethirtyeight.data, "/nfl_data.rds"))
+if (!file.exists(paste0(data.dir, "/nfl_data.RDS"))) {
+   saveRDS(nfl.data.new, file = paste0(data.dir, "/nfl_data.rds"))
    nfl.data <- nfl.data.new
 }else{
    # check old data against new data
-   nfl.data <- readRDS(paste0(fivethirtyeight.data, "/nfl_data.rds"))
+   nfl.data <- readRDS(paste0(data.dir, "/nfl_data.rds"))
 
    if(nrow(setdiff(nfl.data.new, nfl.data))>0){
-      saveRDS(nfl.data.new, file = paste0(fivethirtyeight.data, "/nfl_data.rds"))
+      saveRDS(nfl.data.new, file = paste0(data.dir, "/nfl_data.rds"))
       message("NFL data has changed, updated to new data")
    }else{
       message("NFL data has not updated.")
@@ -91,15 +90,15 @@ if (!file.exists(paste0(fivethirtyeight.data, "/nfl_data.RDS"))) {
 }
 
 # NHL
-if (!file.exists(paste0(fivethirtyeight.data, "/nhl_data.RDS"))) {
-   saveRDS(nhl.data.new, file = paste0(fivethirtyeight.data, "/nhl_data.rds"))
+if (!file.exists(paste0(data.dir, "/nhl_data.RDS"))) {
+   saveRDS(nhl.data.new, file = paste0(data.dir, "/nhl_data.rds"))
    nhl.data <- nhl.data.new
 }else{
    # check old data against new data
-   nhl.data <- readRDS(paste0(fivethirtyeight.data, "/nhl_data.rds"))
+   nhl.data <- readRDS(paste0(data.dir, "/nhl_data.rds"))
 
    if(nrow(setdiff(nhl.data.new, nhl.data))>0){
-      saveRDS(nhl.data.new, file = paste0(fivethirtyeight.data, "/nhl_data.rds"))
+      saveRDS(nhl.data.new, file = paste0(data.dir, "/nhl_data.rds"))
       message("NHL data has changed, updated to new data")
    }else{
       message("NHL data has not updated.")
@@ -116,7 +115,7 @@ nfl.teams <- nfl.data[season == curr.season, .(unique(team1))]
 nhl.teams <- nhl.data[season == curr.season, .(unique(home_team))]
 
 #### Data Calculations ####
-# Club Soccer
+
 
 
 
