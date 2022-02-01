@@ -9,12 +9,12 @@
 rm(list = ls())
 graphics.off()
 
+# Initializing Code
+source("system_init.R")
+
 # Set directories
 dir <- getwd()
 data.dir <- paste0(dir, "/data")
-
-# Initializing Code
-source("system_init.R")
 
 # Pull in most up to date FiveThirtyEight data
 source("fivethirtyeight.R")

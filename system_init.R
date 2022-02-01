@@ -3,46 +3,20 @@
 ###########################
 
 #### check working directory and set if needed; set additional directories ####
-if(getwd()==paste0("C:/Users/",Sys.info()[6],"/Documents/R/sportsbetting")){
-   message(paste0("Current working directory: ", getwd()))
-} else{
-   setwd(paste0("C:/Users/",Sys.info()[6],"/Documents/R/sportsbetting"))
-   message(paste0("Directory changed, set to: ", getwd()))
+if(Sys.info()[1] == "Linux"){
+  if(getwd() == "~/R/sportsbetting"){
+    message("Working directory not set appropriately. Changing working directory to: ")
+    message(getwd())
+  } else{
+    setwd("~/R/sportsbetting")
+    message("Working directory is: ", getwd())
+
+  }
 }
 
-
-##### Loading Needed packages ####
-
-# Checks for needed package [pacman] and then loads other packages [pkgs]
-if(!require("pacman", character.only = T)){
-   install.packages("pacman")
-}
-
-pkgs <- c("assertable",
-          "data.table",
-          "googledrive",
-          "googlesheets4",
-          "installr",
-          "rvest",
-          "shiny",
-          "tidyverse")
-
-pacman::p_load(pkgs, character.only = T)
-
-
-# system initialized message
-message("Directories changed and loaded packages:
-      assertable
-      data.table
-      googledrive
-      googlesheets4
-      installr
-      rvest
-      shiny
-      tidyverse")
 
 #### Helpful Functions ####
-namediff <- function(x, y){
+namediff <- function(x, y) {
    message("Columns in ", deparse(substitute(x)), " that are not in ", deparse(substitute(y)), ":")
    xdiff <- setdiff(names(x), names(y))
    for (x in 1:length(xdiff)) {
@@ -54,3 +28,23 @@ namediff <- function(x, y){
       cat(ydiff[x], "\n")
    }
 }
+
+
+##### Loading Needed packages ####
+# Require and install pacman for loading all needed packages
+if (!require("pacman", character.only = TRUE)) {
+   install.packages("pacman")
+   library(pacman)
+}
+
+# List of packages to be loaded
+pkgs <- c("assertable",
+          "data.table",
+          "installr",
+          "shiny",
+          "tidyverse")
+
+p_load(pkgs, character.only = TRUE)
+p_loaded()
+
+

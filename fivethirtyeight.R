@@ -26,7 +26,7 @@ nhl.data.new <- fivethirtyeight.urls[5,2] %>% fread()
 #### Check if data has updated; if so, update ####
 
 # Club Soccer
-if (!file.exists(paste0(data.dir, "/soccer_data.RDS"))) {
+if (!file.exists(paste0(data.dir, "/soccer_data.rds"))) {
    saveRDS(soccer.data.new, file = paste0(data.dir, "/soccer_data.rds"))
    soccer.data <- soccer.data.new
 }else{
@@ -42,7 +42,7 @@ if (!file.exists(paste0(data.dir, "/soccer_data.RDS"))) {
 }
 
 # MLB
-if (!file.exists(paste0(data.dir, "/mlb_data.RDS"))) {
+if (!file.exists(paste0(data.dir, "/mlb_data.rds"))) {
    saveRDS(mlb.data.new, file = paste0(data.dir, "/mlb_data.rds"))
    mlb.data <- mlb.data.new
 }else{
@@ -58,7 +58,7 @@ if (!file.exists(paste0(data.dir, "/mlb_data.RDS"))) {
 }
 
 # NBA
-if (!file.exists(paste0(data.dir, "/nba_data.RDS"))) {
+if (!file.exists(paste0(data.dir, "/nba_data.rds"))) {
    saveRDS(nba.data.new, file = paste0(data.dir, "/nba_data.rds"))
    nba.data <- nba.data.new
 }else{
@@ -74,7 +74,7 @@ if (!file.exists(paste0(data.dir, "/nba_data.RDS"))) {
 }
 
 # NFL
-if (!file.exists(paste0(data.dir, "/nfl_data.RDS"))) {
+if (!file.exists(paste0(data.dir, "/nfl_data.rds"))) {
    saveRDS(nfl.data.new, file = paste0(data.dir, "/nfl_data.rds"))
    nfl.data <- nfl.data.new
 }else{
@@ -90,7 +90,7 @@ if (!file.exists(paste0(data.dir, "/nfl_data.RDS"))) {
 }
 
 # NHL
-if (!file.exists(paste0(data.dir, "/nhl_data.RDS"))) {
+if (!file.exists(paste0(data.dir, "/nhl_data.rds"))) {
    saveRDS(nhl.data.new, file = paste0(data.dir, "/nhl_data.rds"))
    nhl.data <- nhl.data.new
 }else{

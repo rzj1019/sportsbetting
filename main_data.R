@@ -9,14 +9,14 @@ googlesheets4::gs4_auth(email = TRUE)
 
 # Bet538 sheets
 bet538 <- "16RhAnUcACgKTYaJZKT7JzWDd57zcFNzMkXL29KGo9rg"
-pointspread.new <- read_sheet(bet538, sheet = "PointSpread") %>% data.table()
-moneyline.new <- read_sheet(bet538, sheet = "Moneyline") %>% data.table()
-parlays.new <- read_sheet(bet538, sheet = "Parlays") %>% data.table()
+pointspread.new <- googlesheets4::read_sheet(bet538, sheet = "PointSpread") %>% data.table()
+moneyline.new <- googlesheets4::read_sheet(bet538, sheet = "Moneyline") %>% data.table()
+parlays.new <- googlesheets4::read_sheet(bet538, sheet = "Parlays") %>% data.table()
 
 
 #### Save and Update Data ####
 # Point Spread
-if (!file.exists(paste0(data.dir, "/point_spread.RDS"))) {
+if (!file.exists(paste0(data.dir, "/point_spread.rds"))) {
    saveRDS(pointspread.new, file = paste0(data.dir, "/point_spread.rds"))
    pointspread.data <- pointspread.new
 }else{
@@ -32,7 +32,7 @@ if (!file.exists(paste0(data.dir, "/point_spread.RDS"))) {
 }
 
 # Moneyline
-if (!file.exists(paste0(data.dir, "/moneyline.RDS"))) {
+if (!file.exists(paste0(data.dir, "/moneyline.rds"))) {
    saveRDS(moneyline.new, file = paste0(data.dir, "/moneyline.rds"))
    moneyline.data <- moneyline.new
 }else{
@@ -48,7 +48,7 @@ if (!file.exists(paste0(data.dir, "/moneyline.RDS"))) {
 }
 
 # Parlays
-if (!file.exists(paste0(data.dir, "/parlays.RDS"))) {
+if (!file.exists(paste0(data.dir, "/parlays.rds"))) {
    saveRDS(parlays.new, file = paste0(data.dir, "/parlays.rds"))
    parlays.data <- parlays.new
 }else{
