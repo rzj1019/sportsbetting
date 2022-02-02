@@ -16,7 +16,8 @@ fivethirtyeight.urls <- data.frame("LeagueData" = c("Club Soccer", "MLB", "NBA",
                                               "https://projects.fivethirtyeight.com/nhl-api/nhl_elo.csv"))
 
 # Soccer, MLB, NHL, NBA, NFL Tables
-soccer.data.new <- fivethirtyeight.urls[1,2] %>% fread()
+
+soccer.data.new <-fivethirtyeight.urls[1,2] %>% fread()
 mlb.data.new <- fivethirtyeight.urls[2,2] %>% fread()
 nba.data.new <- fivethirtyeight.urls[3,2] %>% fread()
 nfl.data.new <- fivethirtyeight.urls[4,2] %>% fread()
