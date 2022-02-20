@@ -35,8 +35,8 @@ if (!file.exists(paste0(data.dir, "/point_spread.rds"))) {
 if (!file.exists(paste0(data.dir, "/moneyline.rds"))) {
    saveRDS(moneyline.new, file = paste0(data.dir, "/moneyline.rds"))
    moneyline.data <- moneyline.new
-}else{
-   # check old data against new data
+} else {
+   hrome# check old data against new data
    moneyline.data <- readRDS(paste0(data.dir, "/moneyline.rds"))
 
    if(nrow(setdiff(moneyline.new, moneyline.data))>0){
